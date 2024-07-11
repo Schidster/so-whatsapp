@@ -5,7 +5,7 @@ import type { WebhookPayload, TextMessage } from './types';
 const { WEBHOOK_VERIFY_TOKEN, GRAPH_API_TOKEN, PORT } = process.env;
 
 const app = new Elysia()
-  .post("/webhook", async ({ body }: {body: WebhookPayload<TextMessage>}) => {
+  .post("/hooks", async ({ body }: {body: WebhookPayload<TextMessage>}) => {
     // log incoming messages
     console.log("Incoming webhook message:", JSON.stringify(body, null, 2));
 
