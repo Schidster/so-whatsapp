@@ -57,7 +57,7 @@ const app = new Elysia()
     const mode = query["hub.mode"];
     const token = query["hub.verify_token"];
     const challenge = query["hub.challenge"];
-    if (mode === "subscribe" && token === WEBHOOK_VERIFY_TOKEN) {
+    if (mode === "subscribe" && token === process.env.VERIFY_TOKEN) {
       set.status = 'OK';
       return challenge;
     } else {
